@@ -1,6 +1,6 @@
 package org.sambasoft;
 
-import org.sambasoft.entities.User;
+import org.sambasoft.entities.Student;
 import org.sambasoft.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -19,9 +19,9 @@ public class CrudBackendApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		userRepository.save(new User("one", "one"));
-		userRepository.save(new User("two", "one"));
-		userRepository.save(new User("three", "one"));
+		userRepository.save(new Student("one", "one"));
+		userRepository.save(new Student("two", "one"));
+		userRepository.save(new Student("three", "one"));
 		
 	}
 }

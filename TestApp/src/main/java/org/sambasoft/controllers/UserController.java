@@ -2,7 +2,7 @@ package org.sambasoft.controllers;
 
 import java.util.List;
 
-import org.sambasoft.entities.User;
+import org.sambasoft.entities.Student;
 import org.sambasoft.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,31 +20,31 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins="http://localhost:4200", allowedHeaders="*")
 public class UserController {
 	@Autowired
-	private UserRepository userRepository;
+    private UserRepository userRepository;
 
-	@GetMapping("/users")
-	public List<User> getUsers() {
+	@GetMapping("/student")
+	public List<Student> getStudents() {
 		return userRepository.findAll();
 	}
 
-	@GetMapping("/user/{id}")
-	public User getUser(@PathVariable Long id) {
+	@GetMapping("/student/{id}")
+	public Student getStudent(@PathVariable Long id) {
 		return userRepository.findOne(id);
 	}
 
-	@DeleteMapping("/user/{id}")
-	public boolean deleteUser(@PathVariable Long id) {
+	@DeleteMapping("/student/{id}")
+	public boolean deleteStudent(@PathVariable Long id) {
 		userRepository.delete(id);
 		return true;
 	}
 
-	@PutMapping("/user")
-	public User updateUser(@RequestBody User user) {
+	@PutMapping("/student")
+	public Student updateStudent(@RequestBody Student user) {
 		return userRepository.save(user);
 	}
 
-	@PostMapping("/user")
-	public User createUser(@RequestBody User user) {
+	@PostMapping("/student")
+	public Student createStudent(@RequestBody Student user) {
 		return userRepository.save(user);
 	}
 
